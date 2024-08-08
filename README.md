@@ -34,3 +34,10 @@ Serve the application:
 ng serve
 ```
 The application can now be accessed at http://localhost:4200/. 
+
+![Application Screenshot](src/assets//images//image.jpeg)
+
+![Application Screenshot](src/assets//images//image2.jpeg)
+
+![Application Screenshot](src/assets//images//image3.jpeg)
+
