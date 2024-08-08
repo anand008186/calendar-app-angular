@@ -1,0 +1,26 @@
+<div class="calendar-container">
+    <div class="calendar-header">
+      <mat-icon  class="create-icon" (click)="addEvent('')">add_circle</mat-icon>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="appointmentDate" (ngModelChange)="onAppointmentDateChange($event)"  name="date" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="calendar-title">Calendar</div>
+      <mat-icon class="settings-icon" >settings</mat-icon>
+    </div>
+    <div class="calendar-body" cdkDropListGroup>
+        <div class="row" *ngFor="let hour of hours; let i = index" >
+          <div class="time-column">
+            <div class="hour-label">{{ hour }}</div>
+          </div>
+          <div tabindex="0" class="events-column" cdkDropList [cdkDropListData]="getEventsForHour(hour)"  (cdkDropListDropped)="drop($event, hour)" (click)="addEvent(hour)" (keydown.enter)="addEvent(hour)">
+            <div *ngFor="let event of getEventsForHour(hour)" cdkDrag>
+              <div tabindex="0" class="event" cdkDragHandle (click)="editEvent(event, $event)" (keydown)="noop()">
+              <h2>  {{ event.title }}</h2>
+                <p>{{event.date | date}}  {{ event.time }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

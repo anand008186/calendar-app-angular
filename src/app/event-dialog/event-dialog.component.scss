@@ -1,0 +1,30 @@
+.dialog-container {
+width: 100%;
+ 
+
+}
+
+.event-title{
+  width: 100%;
+}
+.date-time-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  .date-field, .time-field {
+    flex: 1;
+  }
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  button {
+    border: 2px solid red;
+    padding: 5px;
+    width: 150px;
+  }
+}
